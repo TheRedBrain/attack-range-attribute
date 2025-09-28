@@ -3,7 +3,7 @@
 	"id": "attackrangeattribute",
 	"version": "${version}",
 	"name": "Attack Range Attributes",
-	"description": "A small API that adds a dedicated entity attribute for attack range.",
+	"description": "A small API that adds an attack range entity attribute.",
 	"authors": [
 		"TheRedBrain"
 	],
@@ -22,11 +22,7 @@
 		]
 	},
 	"mixins": [
-		"attackrangeattribute.mixins.json",
-		{
-			"config": "attackrangeattribute.client.mixins.json",
-			"environment": "client"
-		}
+		"attackrangeattribute.mixins.json"
 	],
 	"depends": {
 		"minecraft": "${minecraft_version}",
