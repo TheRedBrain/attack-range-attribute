@@ -2,4 +2,6 @@
 
 First release!
 
+Introduces the "attackrangeattribute:generic.attack_range" entity attribute.
+
 #
