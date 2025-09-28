@@ -1,41 +1,36 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "attackrangeattribute",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Attack Range Attributes",
+	"description": "A small API that adds a dedicated entity attribute for attack range.",
 	"authors": [
-		"Me!"
+		"TheRedBrain"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/TheRedBrain/attack-range-attribute"
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"license": "MIT",
+	"icon": "assets/attackrangeattribute/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"com.github.theredbrain.attackrangeattribute.AttackRangeAttribute"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.github.theredbrain.attackrangeattribute.AttackRangeAttributeClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"attackrangeattribute.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "attackrangeattribute.client.mixins.json",
 			"environment": "client"
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"minecraft": "${minecraft_version}",
+		"fabricloader": ">=${loader_version}",
+		"java": ">=21"
 	}
 }

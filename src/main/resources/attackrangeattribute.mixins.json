@@ -3,7 +3,7 @@
 	"package": "com.example.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+      "com.github.theredbrain.attackrangeattribute.mixin.ExampleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
