@@ -1,6 +1,10 @@
 # Attack Range Attribute
 
-A small API that adds the "attackrangeattribute:generic.attack_range" entity attribute. On its own this mod doesn't change gameplay.
+A small API that adds the "attackrangeattribute:generic.attack_range" entity attribute.
+
+> On its own this mod does NOT change gameplay. It does NOT change the attack range when used on its own.
+
+Other mods like [Better Combat Extension](https://modrinth.com/mod/bettercombat-extension) and [Spell Engine Extension](https://modrinth.com/mod/spell-engine-extension) can optionally use this mod.
 
 ## Vanilla Minecraft has the "entity_interaction_range" attribute. Why is an "attack_range" attribute necessary?
 
