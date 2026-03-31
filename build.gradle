@@ -13,11 +13,13 @@ base {
 }
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+
+	// Fzzy Config
+	maven {
+		name = "FzzyMaven"
+		url = "https://maven.fzzyhmstrs.me/"
+	}
+
 }
 
 loom {
@@ -38,9 +40,12 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-//	// Fabric API. This is technically optional, but you probably want it anyway.
-//	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Fzzy Config
+	modImplementation"me.fzzyhmstrs:fzzy_config:${project.fzzy_config_version}"
+
 }
 
 processResources {
@@ -81,30 +86,30 @@ ext.changelog_last_section = { ->
 if(project.hasProperty('release_type')) {
 	tasks.register("publishMod") {
 		dependsOn(build)
-		finalizedBy(tasks.curseforge)
+//		finalizedBy(tasks.curseforge)
 		finalizedBy(tasks.modrinth)
 		finalizedBy(tasks.githubRelease)
 	}
 
-	curseforge {
-		apiKey = System.getenv("CURSEFORGE_API_KEY")
-		project {
-			id = System.getenv("CURSEFORGE_PROJECT_ID")
-			changelog = changelog_last_section()
-			changelogType = 'markdown'
-			releaseType = release_type
-			addGameVersion "${project.minecraft_version}"
-			addGameVersion "Fabric"
-
-			mainArtifact(remapJar)
-			afterEvaluate {
-				uploadTask.dependsOn(remapJar)
-			}
-			options {
-				forgeGradleIntegration = false
-			}
-		}
-	}
+//	curseforge {
+//		apiKey = System.getenv("CURSEFORGE_API_KEY")
+//		project {
+//			id = System.getenv("CURSEFORGE_PROJECT_ID")
+//			changelog = changelog_last_section()
+//			changelogType = 'markdown'
+//			releaseType = release_type
+//			addGameVersion "${project.minecraft_version}"
+//			addGameVersion "Fabric"
+//
+//			mainArtifact(remapJar)
+//			afterEvaluate {
+//				uploadTask.dependsOn(remapJar)
+//			}
+//			options {
+//				forgeGradleIntegration = false
+//			}
+//		}
+//	}
 
 	modrinth {
 		token = System.getenv("MODRINTH_API_KEY")
@@ -120,8 +125,8 @@ if(project.hasProperty('release_type')) {
 			// scope.type
 			// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 			// The type can either be `project` or `version`
-//			required.project 'fzzy-config'
-//			required.project 'fabric-api'
+			required.project 'fzzy-config'
+			required.project 'fabric-api'
 //			required.project 'slot-customization-api'
 //			optional.project 'trinkets'
 //			optional.project 'stamina-attributes'

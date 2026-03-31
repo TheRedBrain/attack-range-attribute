@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "attackrangeattribute",
 	"version": "${version}",
-	"name": "Attack Range Attributes",
+	"name": "Attack Range Attribute",
 	"description": "A small API that adds an attack range entity attribute.",
 	"authors": [
 		"TheRedBrain"
@@ -27,6 +27,7 @@
 	"depends": {
 		"minecraft": "${minecraft_version}",
 		"fabricloader": ">=${loader_version}",
-		"java": ">=21"
+		"fabric-api": "*",
+		"fzzy_config": ">=${fzzy_config_version}"
 	}
 }
